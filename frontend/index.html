@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html>
+<body>
+
+<h1>Chatbot</h1>
+
+<div id="chat"></div>
+
+<input id="input" placeholder="Type..." />
+<button onclick="sendMessage()">Send</button>
+
+<script>
+let messages = [];
+
+async function sendMessage() {
+  const input = document.getElementById("input");
+  const text = input.value;
+
+  if (!text) return;
+
+  // show user message
+  document.getElementById("chat").innerHTML += "<p>You: " + text + "</p>";
+
+  messages.push({ role: "user", content: text });
+
+  input.value = "";
+
+  const res = await fetch("https://aichatbot-98pp.onrender.com", {
+    method: "POST",
+    headers: {
+      "Content-Type": "application/json"
+    },
+    body: JSON.stringify({ messages })
+  });
+
+  const data = await res.json();
+
+  document.getElementById("chat").innerHTML += "<p>AI: " + data.reply + "</p>";
+
+  messages.push({ role: "assistant", content: data.reply });
+}
+</script>
+
+</body>
+</html>
