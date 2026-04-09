@@ -1,0 +1,18 @@
+# AI Chatbot
+
+## What I Built
+A minimal AI chatbot with a Node.js Express backend and a vanilla JavaScript frontend. The chatbot maintains conversation context and is deployed with a live frontend and backend.
+
+## API and Model
+API: OpenRouter  
+Model: openai/gpt-4o-mini  
+
+Why backend only: API keys placed in frontend JavaScript can be extracted by anyone using browser DevTools or network inspection, allowing unauthorized usage and billing abuse. Using a backend ensures the key remains secure and never exposed to the client.
+
+Fallback provider: Google Gemini API. Switching requires changing:
+1. Base URL to https://generativelanguage.googleapis.com/v1beta/openai/
+2. Model name to gemini-1.5-flash
+
+## Live Deployment
+Frontend: https://ai-chatbot18.netlify.app/ 
+Backend: https://aichatbot-98pp.onrender.com
