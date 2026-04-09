@@ -16,3 +16,6 @@ Fallback provider: Google Gemini API. Switching requires changing:
 ## Live Deployment
 Frontend: https://ai-chatbot18.netlify.app/ 
 Backend: https://aichatbot-98pp.onrender.com
+
+## Update
+This PR includes final deployed chatbot URLs.
